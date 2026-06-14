@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>Menu — THESAGEMODE</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="menu-page">
+  <header class="menu-header">
+    <div class="customer-card">
+      <div class="customer-head">
+        <span class="customer-title">Customer Information</span>
+        <a href="index.html" class="change-link">Change</a>
+      </div>
+      <div class="customer-grid">
+        <div class="customer-pill">
+          <span class="pill-label">Your name</span>
+          <span id="ci-name" class="pill-value">—</span>
+        </div>
+        <div class="customer-pill">
+          <span class="pill-label">Number of person</span>
+          <span class="pill-value"><span id="ci-table">—</span> Person Table</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="discount-section">
+      <div class="discount-head">
+        <h2>Special Discount Today</h2>
+        <button id="see-all-btn" class="see-all" type="button">See All</button>
+      </div>
+      <div class="discount-timer-row">
+        <span class="discount-timer">Ends in <b id="timer">12 : 10 : 09</b></span>
+      </div>
+      <div class="discount-scroll" id="discount-row"></div>
+    </section>
+
+    <div class="search-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Cari makanan atau minuman..."/>
+    </div>
+
+    <div class="explore-head">
+      <h2>Explore Our Best Menu</h2>
+      <button id="call-waiter-btn" class="waiter-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        Panggil Pelayan
+      </button>
+    </div>
+
+    <div class="cat-row">
+      <button class="cat-chip active" data-cat="all">Semua</button>
+      <button class="cat-chip" data-cat="makanan">Makanan</button>
+      <button class="cat-chip" data-cat="minuman">Minuman</button>
+    </div>
+  </header>
+
+  <main class="menu-grid" id="menu-grid"></main>
+
+  <nav class="bottom-nav">
+    <a href="menu.html" class="nav-item active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      <span>Menu</span>
+    </a>
+    <a href="cart.html" class="nav-item">
+      <div class="nav-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span id="nav-cart-count" class="badge" hidden>0</span>
+      </div>
+      <span>Keranjang</span>
+    </a>
+  </nav>
+
+  <!-- Waiter sheet -->
+  <div id="waiter-sheet" class="sheet" hidden>
+    <div class="sheet-backdrop"></div>
+    <div class="sheet-panel">
+      <div class="sheet-handle"></div>
+      <h3>Panggil Pelayan: Pilih Alasan</h3>
+      <div class="reason-chips">
+        <button class="reason-chip" data-reason="Minta Sendok/Garpu">🍴 Minta Sendok/Garpu</button>
+        <button class="reason-chip" data-reason="Refill Air">💧 Refill Air</button>
+        <button class="reason-chip" data-reason="Masalah Pesanan">⚠️ Masalah Pesanan</button>
+      </div>
+      <label class="field-label" style="margin-top:4px">Atau ketik alasan lain</label>
+      <textarea id="custom-reason" class="custom-reason" rows="2" placeholder="Contoh: Minta tisu tambahan..."></textarea>
+      <button id="custom-reason-send" class="cta-btn" type="button" style="margin-top:10px">Kirim Panggilan</button>
+      <button id="waiter-close" class="ghost-btn" style="margin-top:8px">Batal</button>
+    </div>
+  </div>
+
+  <!-- Confirm sheet -->
+  <div id="confirm-sheet" class="sheet" hidden>
+    <div class="sheet-backdrop"></div>
+    <div class="sheet-panel confirm-panel">
+      <div class="sheet-handle"></div>
+      <h3>Konfirmasi Panggilan</h3>
+      <p class="confirm-text">Yakin ingin memanggil pelayan dengan alasan: <b id="confirm-reason">—</b>?</p>
+      <div class="confirm-actions">
+        <button id="confirm-no" class="ghost-btn">Tidak</button>
+        <button id="confirm-yes" class="cta-btn">Ya, Panggil</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- See All discount sheet -->
+  <div id="discount-sheet" class="sheet" hidden>
+    <div class="sheet-backdrop"></div>
+    <div class="sheet-panel">
+      <div class="sheet-handle"></div>
+      <h3>Semua Diskon Hari Ini</h3>
+      <div id="discount-all" class="discount-all-grid"></div>
+      <button id="discount-close" class="ghost-btn" style="margin-top:10px">Tutup</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>

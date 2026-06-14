@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>Keranjang — THESAGEMODE</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="cart-page">
+  <header class="page-header">
+    <a href="menu.html" class="back-btn" aria-label="kembali">←</a>
+    <h1>Keranjang</h1>
+    <span id="cart-meja-badge" class="meja-badge small"></span>
+  </header>
+
+  <main id="cart-list" class="cart-list"></main>
+
+  <footer id="cart-footer" class="cart-footer" hidden>
+    <div class="bill-rows">
+      <div class="bill-row">
+        <span>Subtotal</span>
+        <b id="cart-subtotal">Rp 0</b>
+      </div>
+      <div class="bill-row" id="discount-row" hidden>
+        <span>Diskon</span>
+        <b id="cart-discount">- Rp 0</b>
+      </div>
+      <div class="bill-line"></div>
+      <div class="bill-row total-row">
+        <span>Total</span>
+        <b id="cart-total">Rp 0</b>
+      </div>
+    </div>
+    <button id="checkout-btn" class="cta-btn">Pesan Sekarang</button>
+  </footer>
+
+  <div id="confirm-order" class="sheet" hidden>
+    <div class="sheet-backdrop"></div>
+    <div class="sheet-panel confirm-panel">
+      <button class="confirm-close" id="confirm-order-close" aria-label="tutup">×</button>
+      <div class="confirm-illustration">📦✅</div>
+      <h3 class="confirm-title">Confirm Your Order</h3>
+      <p class="confirm-text">Are you sure you want to proceed to the payment process after confirming your order?</p>
+      <p class="confirm-sub">If everything is correct, click '<b>Confirm</b>' to proceed.</p>
+      <div class="confirm-actions">
+        <button id="confirm-order-cancel" class="btn-outline">Cancel</button>
+        <button id="confirm-order-yes" class="btn-primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

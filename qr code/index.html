@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>THESAGEMODE — Welcome</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="landing-page">
+  <main class="landing-wrap">
+    <div class="logo-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="3" height="3"/>
+        <rect x="18" y="14" width="3" height="3"/><rect x="14" y="18" width="3" height="3"/>
+      </svg>
+    </div>
+    <h1 class="landing-title">Hello People 👋, Welcome to <br/>THESAGEMODE !</h1>
+    <p class="landing-sub">Silakan masukkan nama Anda dan nomor meja. Lalu Anda dapat memilih menu varian terbaik kami.</p>
+
+    <form id="customer-form" class="form-stack">
+      <label class="field-label" for="name">Nama Anda</label>
+      <input id="name" name="name" type="text" required placeholder="Contoh: Emir Abiyyu" class="field-input"/>
+
+      <label class="field-label" for="table">Nomor Meja</label>
+      <input id="table" name="table" type="text" inputmode="numeric" placeholder="Contoh: 05" class="field-input"/>
+    </form>
+  </main>
+  <button form="customer-form" id="done-btn" class="cta-fixed" type="submit">Done</button>
+<script src="app.js"></script>
+</body>
+</html>

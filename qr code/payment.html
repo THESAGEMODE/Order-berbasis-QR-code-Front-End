@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>Payment Option — THESAGEMODE</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="payment-page">
+  <header class="page-header">
+    <a href="cart.html" class="back-btn" aria-label="kembali">←</a>
+    <h1>Payment Option</h1>
+    <span></span>
+  </header>
+
+  <main class="pay-main">
+    <p class="pay-group-title">Non Cash</p>
+    <label class="pay-row">
+      <span class="pay-left">
+        <span class="pay-icon pay-icon-qris">QRIS</span>
+      </span>
+      <span class="pay-name">QRIS</span>
+      <input type="radio" name="method" value="qris" checked />
+      <span class="pay-radio"></span>
+    </label>
+
+    <p class="pay-group-title">Cashier</p>
+    <label class="pay-row">
+      <span class="pay-left">
+        <span class="pay-icon">💳</span>
+      </span>
+      <span class="pay-name">EDC</span>
+      <input type="radio" name="method" value="edc" />
+      <span class="pay-radio"></span>
+    </label>
+    <label class="pay-row">
+      <span class="pay-left">
+        <span class="pay-icon">💵</span>
+      </span>
+      <span class="pay-name">Cash</span>
+      <input type="radio" name="method" value="cash" />
+      <span class="pay-radio"></span>
+    </label>
+  </main>
+
+  <footer class="pay-footer">
+    <button id="proceed-btn" class="cta-btn">Proceed to Payment</button>
+  </footer>
+
+  <div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

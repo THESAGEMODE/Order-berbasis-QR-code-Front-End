@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>QRIS Payment — THESAGEMODE</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="qris-page">
+  <header class="page-header">
+    <a href="payment.html" class="back-btn" aria-label="kembali">←</a>
+    <h1></h1>
+    <span></span>
+  </header>
+
+  <main class="qris-main">
+    <div class="qris-timer-bar">
+      <span>Complete Payment Within</span>
+      <span class="qris-timer">⏱ <b id="qris-timer">15:00</b></span>
+    </div>
+
+    <p class="qris-hint">Scan this QR code with your preferred payment platform</p>
+
+    <p class="qris-total-label">Total to Pay</p>
+    <p class="qris-total" id="qris-total">Rp 0</p>
+    <p class="qris-order">Order Number : <span id="qris-order-no">—</span></p>
+
+    <div class="qris-box">
+      <span class="qris-corner tl"></span>
+      <span class="qris-corner tr"></span>
+      <span class="qris-corner bl"></span>
+      <span class="qris-corner br"></span>
+      <img alt="QR Code" src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=THESAGEMODE-ORDER" />
+    </div>
+
+    <div class="qris-help">
+      <p><b>Can't scan? Try this method:</b></p>
+      <ol>
+        <li>Screenshot the QRIS code displayed on this screen.</li>
+        <li>Open your e-wallet app and choose "Scan from gallery".</li>
+        <li>Select the screenshot and confirm payment.</li>
+      </ol>
+    </div>
+
+    <button id="qris-done" class="cta-btn" style="margin-top:18px">I Have Paid</button>
+  </main>
+<script src="app.js"></script>
+</body>
+</html>
