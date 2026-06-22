@@ -11,10 +11,19 @@
     <div class="check-circle">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
-    <h1>Pesanan Diterima!</h1>
-    <p class="muted">Nomor pesanan</p>
-    <p class="order-no" id="order-no">#0000</p>
-    <p class="muted">Mohon tunggu, pesanan Anda sedang disiapkan.</p>
+    <h1>Pembayaran Berhasil!</h1>
+    <p class="muted">Terima kasih, pesanan Anda telah kami terima.</p>
+
+    <div class="receipt-card">
+      <div class="receipt-row"><span>Nomor Pesanan</span><b id="order-no">#0000</b></div>
+      <div class="receipt-row"><span>Meja</span><b id="receipt-meja">-</b></div>
+      <div class="receipt-row"><span>Metode</span><b id="receipt-method">-</b></div>
+      <div class="receipt-row"><span>Total Bayar</span><b id="receipt-total">Rp 0</b></div>
+      <div class="bill-line"></div>
+      <div class="receipt-row"><span>Status</span><span class="status-pill" id="order-status">Sedang Disiapkan</span></div>
+    </div>
+
+    <p class="muted small">Silakan tunggu di meja Anda, pesanan sedang disiapkan oleh dapur.</p>
     <a href="menu.html" class="cta-btn block">Kembali ke Menu</a>
   </main>
 <script src="app.js"></script>

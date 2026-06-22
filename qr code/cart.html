@@ -34,14 +34,25 @@
     <button id="checkout-btn" class="cta-btn">Pesan Sekarang</button>
   </footer>
 
-  <div id="confirm-order" class="sheet" hidden>
+  <div id="confirm-order" class="sheet sheet-center" hidden>
     <div class="sheet-backdrop"></div>
     <div class="sheet-panel confirm-panel">
       <button class="confirm-close" id="confirm-order-close" aria-label="tutup">×</button>
-      <div class="confirm-illustration">📦✅</div>
       <h3 class="confirm-title">Confirm Your Order</h3>
-      <p class="confirm-text">Are you sure you want to proceed to the payment process after confirming your order?</p>
-      <p class="confirm-sub">If everything is correct, click '<b>Confirm</b>' to proceed.</p>
+      <div class="confirm-illustration">
+        <img src="images/confirm-order.png" alt="Konfirmasi pesanan" width="160" height="160" />
+      </div>
+      <div class="confirm-meja-row">
+        <span>Meja</span><b id="confirm-meja">-</b>
+      </div>
+      <ul class="confirm-items" id="confirm-items"></ul>
+      <div class="confirm-bill">
+        <div class="bill-row"><span>Subtotal</span><b id="confirm-subtotal">Rp 0</b></div>
+        <div class="bill-row" id="confirm-disc-row" hidden><span>Diskon</span><b id="confirm-discount">- Rp 0</b></div>
+        <div class="bill-line"></div>
+        <div class="bill-row total-row"><span>Total</span><b id="confirm-total">Rp 0</b></div>
+      </div>
+      <p class="confirm-text">Pastikan pesanan sudah benar sebelum melanjutkan ke pembayaran.</p>
       <div class="confirm-actions">
         <button id="confirm-order-cancel" class="btn-outline">Cancel</button>
         <button id="confirm-order-yes" class="btn-primary">Confirm</button>

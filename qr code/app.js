@@ -292,11 +292,7 @@ if (document.body.classList.contains("cart-page")) {
     }
   });
   const confirmOrder = document.getElementById("confirm-order");
-  document.getElementById("checkout-btn").addEventListener("click",()=>{ confirmOrder.hidden = false; });
-  document.getElementById("confirm-order-cancel").addEventListener("click",()=>confirmOrder.hidden=true);
-  document.getElementById("confirm-order-close").addEventListener("click",()=>confirmOrder.hidden=true);
-  confirmOrder.querySelector(".sheet-backdrop").addEventListener("click",()=>confirmOrder.hidden=true);
-  document.getElementById("confirm-order-yes").addEventListener("click",()=>{
+  function computeBill(){
     const st = getState();
     let subtotal=0, discount=0;
     for(const c of st.cart){
@@ -305,7 +301,36 @@ if (document.body.classList.contains("cart-page")) {
       subtotal += base*c.quantity;
       discount += (base - c.price)*c.quantity;
     }
-    sessionStorage.setItem("pending_total", subtotal - discount);
+    return { subtotal, discount, total: subtotal-discount };
+  }
+  function openConfirm(){
+    const st = getState();
+    if(!st.cart.length) return;
+    document.getElementById("confirm-meja").textContent = st.table || "-";
+    document.getElementById("confirm-items").innerHTML = st.cart.map(c=>`
+      <li class="confirm-item">
+        <span class="ci-qty">${c.quantity}×</span>
+        <span class="ci-name">${c.name}</span>
+        <span class="ci-price">${formatPrice(c.price*c.quantity)}</span>
+      </li>`).join("");
+    const { subtotal, discount, total } = computeBill();
+    document.getElementById("confirm-subtotal").textContent = formatPrice(subtotal);
+    const dr = document.getElementById("confirm-disc-row");
+    if(discount>0){ dr.hidden=false; document.getElementById("confirm-discount").textContent = "- "+formatPrice(discount); }
+    else dr.hidden = true;
+    document.getElementById("confirm-total").textContent = formatPrice(total);
+    confirmOrder.hidden = false;
+  }
+  document.getElementById("checkout-btn").addEventListener("click", openConfirm);
+  document.getElementById("confirm-order-cancel").addEventListener("click",()=>confirmOrder.hidden=true);
+  document.getElementById("confirm-order-close").addEventListener("click",()=>confirmOrder.hidden=true);
+  confirmOrder.querySelector(".sheet-backdrop").addEventListener("click",()=>confirmOrder.hidden=true);
+  document.getElementById("confirm-order-yes").addEventListener("click",()=>{
+    const { total } = computeBill();
+    const st = getState();
+    sessionStorage.setItem("pending_total", total);
+    sessionStorage.setItem("pending_table", st.table || "");
+    sessionStorage.setItem("pending_items", JSON.stringify(st.cart));
     location.href = "payment.html";
   });
 }
@@ -337,24 +362,85 @@ if (document.body.classList.contains("qris-page")) {
   const orderNo = "1200000" + Math.floor(100000 + Math.random()*900000);
   document.getElementById("qris-total").textContent = formatPrice(total);
   document.getElementById("qris-order-no").textContent = orderNo;
-  let secs = 15*60;
   const t = document.getElementById("qris-timer");
-  const iv = setInterval(()=>{
+  const doneBtn = document.getElementById("qris-done");
+  const timeoutModal = document.getElementById("qris-timeout");
+  const failModal = document.getElementById("qris-fail");
+  const DURATION = 15*60;
+  let secs = DURATION, iv = null, expired = false;
+
+  function tick(){
     secs--;
-    const m = Math.floor(secs/60), s = secs%60;
-    t.textContent = String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-    if(secs<=0){ clearInterval(iv); location.href="cart.html"; }
-  }, 1000);
-  document.getElementById("qris-done").addEventListener("click",()=>{
-    sessionStorage.setItem("last_order", orderNo);
-    setState({ cart: [] });
-    location.href = "success.html";
+    const m = Math.floor(secs/60), s = ((secs%60)+60)%60;
+    t.textContent = String(Math.max(0,m)).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    if(secs<=0){ stopTimer(); onTimeout(); }
+  }
+  function startTimer(){
+    stopTimer();
+    secs = DURATION; expired = false;
+    doneBtn.disabled = false;
+    t.textContent = "15:00";
+    iv = setInterval(tick, 1000);
+  }
+  function stopTimer(){ if(iv){ clearInterval(iv); iv=null; } }
+  function onTimeout(){
+    expired = true;
+    doneBtn.disabled = true;
+    timeoutModal.hidden = false;
+  }
+
+  startTimer();
+
+  doneBtn.addEventListener("click", ()=>{
+    if(expired) return;
+    doneBtn.disabled = true;
+    doneBtn.textContent = "Memverifikasi...";
+    // Simulate verification; ~85% success
+    setTimeout(()=>{
+      const ok = Math.random() < 0.85;
+      doneBtn.textContent = "I Have Paid";
+      if(ok){
+        stopTimer();
+        sessionStorage.setItem("last_order", orderNo);
+        setState({ cart: [] });
+        location.href = "success.html";
+      } else {
+        doneBtn.disabled = false;
+        failModal.hidden = false;
+      }
+    }, 1200);
+  });
+
+  // Timeout modal actions
+  document.getElementById("qris-retry").addEventListener("click", ()=>{
+    timeoutModal.hidden = true;
+    startTimer();
+  });
+  document.getElementById("qris-cancel").addEventListener("click", ()=>{
+    timeoutModal.hidden = true;
+    location.href = "payment.html";
+  });
+
+  // Failure modal actions
+  document.getElementById("qris-fail-retry").addEventListener("click", ()=>{
+    failModal.hidden = true;
+  });
+  document.getElementById("qris-fail-back").addEventListener("click", ()=>{
+    failModal.hidden = true;
+    stopTimer();
+    location.href = "payment.html";
   });
 }
 
 /* ---------- SUCCESS ---------- */
 if (document.body.classList.contains("success-page")) {
   const no = sessionStorage.getItem("last_order") || Math.floor(1000+Math.random()*9000);
-  const el = document.getElementById("order-no");
-  if(el) el.textContent = "#" + no;
+  const total = Number(sessionStorage.getItem("pending_total") || 0);
+  const table = sessionStorage.getItem("pending_table") || "-";
+  const method = (sessionStorage.getItem("pay_method") || "-").toUpperCase();
+  const set = (id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
+  set("order-no", "#"+no);
+  set("receipt-meja", table);
+  set("receipt-method", method);
+  set("receipt-total", formatPrice(total));
 }

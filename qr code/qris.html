@@ -44,6 +44,30 @@
 
     <button id="qris-done" class="cta-btn" style="margin-top:18px">I Have Paid</button>
   </main>
+
+  <div id="qris-timeout" class="sheet sheet-center" hidden>
+    <div class="sheet-backdrop"></div>
+    <div class="sheet-panel confirm-panel">
+      <h3 class="confirm-title">Pembayaran Kedaluwarsa</h3>
+      <p class="confirm-text">Waktu pembayaran QRIS habis. Silakan coba lagi atau pilih metode pembayaran lain.</p>
+      <div class="confirm-actions">
+        <button id="qris-cancel" class="btn-outline">Ganti Metode</button>
+        <button id="qris-retry" class="btn-primary">Coba Lagi</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="qris-fail" class="sheet sheet-center" hidden>
+    <div class="sheet-backdrop"></div>
+    <div class="sheet-panel confirm-panel">
+      <h3 class="confirm-title">Konfirmasi Gagal</h3>
+      <p class="confirm-text">Kami belum menerima pembayaran Anda. Pastikan transaksi berhasil di aplikasi pembayaran, lalu coba lagi.</p>
+      <div class="confirm-actions">
+        <button id="qris-fail-back" class="btn-outline">Ganti Metode</button>
+        <button id="qris-fail-retry" class="btn-primary">Coba Lagi</button>
+      </div>
+    </div>
+  </div>
 <script src="app.js"></script>
 </body>
 </html>
