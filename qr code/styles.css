@@ -232,5 +232,63 @@ a{color:inherit;text-decoration:none}
 .receipt-card{background:#fff;border:1px solid #eef1f6;border-radius:14px;padding:14px 16px;margin:16px 0;text-align:left;box-shadow:0 4px 14px rgba(15,27,51,.05)}
 .receipt-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:14px;color:#374151}
 .receipt-row b{color:#0f172a}
+
+/* ============ Tablet (>=768px) ============ */
+@media (min-width: 768px){
+  body{max-width:760px;padding-bottom:env(safe-area-inset-bottom)}
+
+  /* Landing */
+  .landing-page{padding:56px 64px 140px}
+  .logo-badge{width:72px;height:72px;border-radius:20px;margin:12px auto 24px}
+  .logo-badge svg{width:36px;height:36px}
+  .landing-title{font-size:28px}
+  .landing-sub{font-size:15px;margin-bottom:36px}
+  .field-input{padding:16px 18px;font-size:16px}
+  .cta-fixed{max-width:480px;font-size:16px;padding:18px}
+
+  /* Menu */
+  .menu-header{padding:24px 28px 8px}
+  .customer-card{padding:18px}
+  .customer-title{font-size:16px}
+  .pill-value{font-size:14px}
+  .discount-scroll{margin:0 -28px;padding-left:28px;padding-right:28px}
+  .discount-card{flex:0 0 200px}
+  .discount-all-grid{grid-template-columns:repeat(3,1fr)}
+  .menu-grid{grid-template-columns:repeat(3,1fr);padding:18px 28px;gap:16px}
+  .menu-name{font-size:14px}
+  .menu-desc{font-size:12px}
+  .menu-price{font-size:14px}
+
+  /* Bottom nav & cart footer use same max width as body */
+  .bottom-nav,.cart-footer,.pay-footer{max-width:760px}
+
+  /* Cart */
+  .cart-list{padding:20px 28px 220px;gap:14px}
+  .cart-item img{width:80px;height:80px}
+  .cart-item-name{font-size:14px}
+
+  /* Payment */
+  .pay-main{padding:12px 28px}
+  .pay-row{padding:14px 18px}
+  .pay-name{font-size:14px}
+
+  /* QRIS */
+  .qris-page{padding:0 28px 50px}
+  .qris-box{padding:30px}
+  .qris-box img{width:280px;height:280px}
+  .qris-total{font-size:28px}
+
+  /* Sheet panels (centered modals stay compact, bottom sheets widen with body) */
+  .sheet-panel{max-width:760px}
+  .sheet-center .sheet-panel,.confirm-panel{max-width:420px}
+  .confirm-illustration img{width:220px;height:220px}
+
+  /* Success */
+  .success-wrap{max-width:420px}
+  .check-circle{width:96px;height:96px}
+  .check-circle svg{width:48px;height:48px}
+  .success-wrap h1{font-size:26px}
+  .order-no{font-size:34px}
+}
 .status-pill{background:#fff7e6;color:#b45309;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
 .success-wrap .small{font-size:12px}
