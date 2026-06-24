@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Pembayaran Tunai — THESAGEMODE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="cash-page">
+    <header class="page-header">
+      <a href="payment.html" class="back-btn" aria-label="kembali">←</a>
+      <h1>Pembayaran Tunai</h1>
+      <span></span>
+    </header>
+    <main class="cash-wrap">
+      <div class="cash-badge">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="2" y="6" width="20" height="12" rx="2" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </div>
+      <h2>Tunjukkan Pesanan ke Kasir</h2>
+      <p class="muted">
+        Silakan tunjukkan layar ini kepada kasir untuk dicocokkan dengan sistem,
+        lalu bayar dengan uang tunai.
+      </p>
+      <div class="order-id-card">
+        <span class="oid-label">Order ID</span>
+        <span class="oid-value" id="cash-order-no">#0000</span>
+        <span class="oid-meja" id="cash-meja">Meja —</span>
+      </div>
+      <div class="receipt-card">
+        <p class="receipt-title">Detail Pesanan</p>
+        <ul id="cash-items" class="confirm-items"></ul>
+        <div class="bill-line"></div>
+        <div class="receipt-row">
+          <span>Subtotal</span><b id="cash-subtotal">Rp 0</b>
+        </div>
+        <div class="receipt-row" id="cash-disc-row" hidden>
+          <span>Diskon</span
+          ><b id="cash-discount" style="color: var(--danger)">- Rp 0</b>
+        </div>
+        <div class="receipt-row total">
+          <span>Total Bayar</span><b id="cash-total">Rp 0</b>
+        </div>
+      </div>
+      <ol class="cash-steps">
+        <li>Tunjukkan Order ID dan daftar menu kepada kasir.</li>
+        <li>Kasir akan mencocokkan pesanan dengan sistem.</li>
+        <li>Lakukan pembayaran tunai sesuai total.</li>
+        <li>
+          Setelah pembayaran berhasil, tekan tombol di bawah untuk menerima
+          struk online.
+        </li>
+      </ol>
+      <button id="cash-paid" class="cta-btn block">Saya Sudah Bayar</button>
+    </main>
+    <div id="toast" class="toast" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Status Pesanan — THESAGEMODE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="status-page">
+    <header class="page-header">
+      <span></span>
+      <h1>Status Pesanan</h1>
+      <span></span>
+    </header>
+    <main class="status-wrap">
+      <div id="status-icon" class="status-icon pending">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      </div>
+      <h2 id="status-title">Pesanan Anda Sedang Diperiksa</h2>
+      <p id="status-desc" class="muted">
+        Pembayaran QRIS Anda telah kami terima. Mohon menunggu konfirmasi dari
+        penjual. Tekan tombol di bawah untuk mengecek perkembangan pesanan
+        secara berkala.
+      </p>
+      <div class="receipt-card">
+        <div class="receipt-row">
+          <span>Nomor Pesanan</span><b id="s-order-no">#0000</b>
+        </div>
+        <div class="receipt-row"><span>Meja</span><b id="s-meja">-</b></div>
+        <div class="receipt-row">
+          <span>Metode</span><b id="s-method">QRIS</b>
+        </div>
+        <div class="receipt-row">
+          <span>Total</span><b id="s-total">Rp 0</b>
+        </div>
+        <div class="bill-line"></div>
+        <div class="receipt-row">
+          <span>Status</span
+          ><span class="status-pill" id="status-pill">Menunggu Konfirmasi</span>
+        </div>
+      </div>
+      <div id="status-hint" class="status-hint">
+        Penjual akan segera mengonfirmasi pesanan Anda.
+      </div>
+      <button id="check-status" class="cta-btn block">
+        Cek Status Pesanan
+      </button>
+      <button id="see-receipt" class="cta-btn block ghost" hidden>
+        Lihat Struk Online
+      </button>
+    </main>
+    <div id="toast" class="toast" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>

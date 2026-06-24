@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>THESAGEMODE — Panduan Pemesanan</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="guide-page">
+  <header class="guide-header">
+    <button class="icon-btn" onclick="history.back()" aria-label="Kembali">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="guide-title-wrap">
+      <h1 class="guide-title">Panduan Pemesanan</h1>
+      <p class="guide-sub">Ikuti langkah-langkah berikut untuk memesan makanan & minuman.</p>
+    </div>
+  </header>
+
+  <main class="guide-main">
+    <section class="guide-intro">
+      <div class="guide-intro-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      </div>
+      <div>
+        <div class="guide-intro-title">Mulai dari mana?</div>
+        <p class="guide-intro-text">Masukkan nama & nomor meja, pilih menu favorit Anda, lalu lakukan pembayaran sesuai metode yang tersedia di bawah ini.</p>
+      </div>
+    </section>
+
+    <div class="guide-tabs" role="tablist">
+      <button class="guide-tab active" data-tab="qris" role="tab">Pembayaran QRIS</button>
+      <button class="guide-tab" data-tab="cash" role="tab">Pembayaran Tunai</button>
+    </div>
+
+    <!-- QRIS -->
+    <section class="guide-panel active" data-panel="qris">
+      <div class="method-badge qris">
+        <span class="dot"></span> Metode: QRIS (Non-tunai)
+      </div>
+
+      <ol class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Lakukan Pembayaran melalui QRIS</div>
+            <p class="step-text">Pindai kode QR yang tampil di layar menggunakan aplikasi e-wallet atau mobile banking Anda, kemudian selesaikan pembayaran sesuai nominal yang tertera.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Notifikasi “Pesanan Anda Sedang Diperiksa”</div>
+            <p class="step-text">Setelah pembayaran berhasil, sistem akan menampilkan notifikasi bahwa pesanan sedang menunggu konfirmasi dari penjual.</p>
+            <span class="status-pill status-pending">Sedang Diperiksa</span>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Cek Status Pesanan Secara Berkala</div>
+            <p class="step-text">Tekan tombol <b>“Cek Status Pesanan”</b> untuk melihat perkembangan dan konfirmasi terbaru dari pihak penjual.</p>
+            <a class="ghost-btn" href="status.html">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+              Cek Status Pesanan
+            </a>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Pesanan Dikonfirmasi → Status “Diterima”</div>
+            <p class="step-text">Setelah penjual mengonfirmasi, status pesanan akan berubah menjadi <b>Diterima</b> dan langsung diproses oleh dapur/restoran.</p>
+            <span class="status-pill status-accepted">Diterima</span>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">Terima Struk Online</div>
+            <p class="step-text">Anda akan menerima struk digital sebagai bukti transaksi yang sah dan dapat disimpan di perangkat Anda.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-body">
+            <div class="step-title">Berikan Penilaian & Ulasan</div>
+            <p class="step-text">Bantu kami meningkatkan layanan dengan memberikan rating dan ulasan terhadap kedai/restoran yang Anda kunjungi.</p>
+            <div class="rate-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CASH -->
+    <section class="guide-panel" data-panel="cash">
+      <div class="method-badge cash">
+        <span class="dot"></span> Metode: Tunai (Cash)
+      </div>
+
+      <ol class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Tunjukkan Detail Pesanan ke Kasir</div>
+            <p class="step-text">Perlihatkan <b>nomor pesanan (Order ID)</b>, layar ponsel berisi detail pesanan, atau daftar menu yang telah dipesan kepada kasir agar dapat dicocokkan dengan sistem restoran.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Lakukan Pembayaran Tunai</div>
+            <p class="step-text">Setelah data pesanan sesuai, lakukan pembayaran menggunakan uang tunai sesuai nominal total yang tertera pada struk.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Terima Struk Online</div>
+            <p class="step-text">Setelah pembayaran diterima, Anda akan menerima struk digital sebagai bukti transaksi yang sah.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Berikan Penilaian & Ulasan</div>
+            <p class="step-text">Sampaikan kesan Anda terhadap kedai/restoran melalui fitur ulasan sebagai bentuk evaluasi dan peningkatan kualitas layanan.</p>
+            <div class="rate-stars" aria-hidden="true">★ ★ ★ ★ ★</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <div class="guide-note">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      <span>Simpan nomor pesanan Anda sampai pesanan selesai diantar.</span>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll('.guide-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        document.querySelectorAll('.guide-tab').forEach(b => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('.guide-panel').forEach(p => p.classList.toggle('active', p.dataset.panel === tab));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

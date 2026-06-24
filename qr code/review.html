@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Beri Ulasan — THESAGEMODE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="review-page">
+    <header class="page-header">
+      <a href="success.html" class="back-btn" aria-label="kembali">←</a>
+      <h1>Penilaian & Ulasan</h1>
+      <span></span>
+    </header>
+    <main class="review-wrap">
+      <div class="logo-badge" style="margin-top: 6px">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"
+          />
+        </svg>
+      </div>
+      <h2>Bagaimana pengalaman Anda?</h2>
+      <p class="muted">
+        Penilaian Anda membantu kami meningkatkan kualitas layanan THESAGEMODE.
+      </p>
+      <div
+        class="rating-row"
+        id="rating-row"
+        role="radiogroup"
+        aria-label="Rating"
+      >
+        <button type="button" class="star" data-v="1" aria-label="1 bintang">
+          ★
+        </button>
+        <button type="button" class="star" data-v="2" aria-label="2 bintang">
+          ★
+        </button>
+        <button type="button" class="star" data-v="3" aria-label="3 bintang">
+          ★
+        </button>
+        <button type="button" class="star" data-v="4" aria-label="4 bintang">
+          ★
+        </button>
+        <button type="button" class="star" data-v="5" aria-label="5 bintang">
+          ★
+        </button>
+      </div>
+      <p class="rating-label" id="rating-label">Pilih jumlah bintang</p>
+      <label class="field-label" for="review-text"
+        >Tulis ulasan (opsional)</label
+      >
+      <textarea
+        id="review-text"
+        class="field-input review-area"
+        rows="4"
+        placeholder="Ceritakan pengalaman Anda tentang makanan, pelayanan, dan suasana..."
+      ></textarea>
+      <div class="tag-row">
+        <button type="button" class="tag-chip" data-tag="Makanan enak">
+          Makanan enak
+        </button>
+        <button type="button" class="tag-chip" data-tag="Pelayanan ramah">
+          Pelayanan ramah
+        </button>
+        <button type="button" class="tag-chip" data-tag="Pesanan cepat">
+          Pesanan cepat
+        </button>
+        <button type="button" class="tag-chip" data-tag="Tempat nyaman">
+          Tempat nyaman
+        </button>
+      </div>
+      <button id="submit-review" class="cta-btn block">Kirim Penilaian</button>
+      <button id="skip-review" class="cta-btn block ghost">Lewati</button>
+    </main>
+    <div id="review-thanks" class="sheet sheet-center" hidden>
+      <div class="sheet-backdrop"></div>
+      <div class="sheet-panel confirm-panel">
+        <div class="check-circle small">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h3 class="confirm-title">Terima Kasih!</h3>
+        <p class="confirm-text">
+          Ulasan Anda telah kami terima. Sampai jumpa kembali di THESAGEMODE.
+        </p>
+        <div class="confirm-actions">
+          <a
+            href="index.html"
+            class="btn-primary"
+            style="text-decoration: none; text-align: center"
+            >Selesai</a
+          >
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast" hidden></div>
+    <script src="app.js"></script>
+  </body>
+</html>
