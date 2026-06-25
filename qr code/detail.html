@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Detail Menu — THESAGEMODE</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detail-page">
+    <div class="detail-hero">
+      <img id="d-image" src="" alt="" />
+      <a href="menu.html" class="detail-back" aria-label="Kembali">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </a>
+    </div>
+
+    <main class="detail-main">
+      <div class="detail-head">
+        <h1 id="d-name" class="detail-name">—</h1>
+        <span id="d-badge" class="detail-badge" hidden></span>
+      </div>
+
+      <div class="detail-meta">
+        <span class="detail-rating">
+          <svg viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
+            <path
+              d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7-6.3-3.8L5.7 21l1.7-7L2 9.5l7.1-.6L12 2z"
+            />
+          </svg>
+          <b id="d-rating">4.8</b>
+          <span id="d-reviews" class="detail-reviews">(126 ulasan)</span>
+        </span>
+        <span id="d-price" class="detail-price">—</span>
+      </div>
+
+      <p id="d-desc" class="detail-desc">—</p>
+
+      <section class="addon-section">
+        <h2 class="section-title">Add-ons</h2>
+        <div id="addon-list" class="addon-list"></div>
+      </section>
+
+      <section class="note-section">
+        <h2 class="section-title">Catatan Pesanan</h2>
+        <textarea
+          id="d-note"
+          class="custom-reason"
+          rows="2"
+          placeholder="Contoh: tidak pedas, tanpa bawang..."
+        ></textarea>
+      </section>
+    </main>
+
+    <footer class="detail-footer">
+      <div class="detail-total">
+        <span class="detail-total-label">Total Harga</span>
+        <span id="d-total" class="detail-total-value">Rp 0</span>
+      </div>
+      <button id="d-add" class="cta-btn detail-cta" type="button">
+        Add to Orders
+      </button>
+    </footer>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
